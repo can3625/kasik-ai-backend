@@ -117,7 +117,7 @@ Yalnızca şu JSON şemasına uygun cevap döndür:
     try:
         response = await asyncio.to_thread(
             client.models.generate_content,
-            model="gemini-3.0-flash"
+            model="gemini-3.0-flash",
             contents=[
                 prompt,
                 types.Part.from_bytes(
