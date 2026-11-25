@@ -55,7 +55,12 @@ async def home():
 async def health():
     return {"status": "healthy"}
 
-
+@app.get("/models")
+def list_models():
+    if client is None:
+        return {"error": "Client yok"}
+    return [m.name for m in client.models.list()]
+    
 @app.post("/analyze")
 async def analyze_food(file: UploadFile = File(...)):
     if client is None:
